@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>QuickBooks callback</title>
+<style>body{font-family:system-ui,sans-serif;margin:3rem auto;max-width:34rem;padding:0 1rem;color:#222;background:#fff}code{background:#f3f3f3;padding:.1rem .3rem}</style>
+</head>
+<body>
+<h2 id="t">Regresando a tu equipo...</h2>
+<p id="p">Esta página solo reenvía la respuesta de QuickBooks al programa que está esperando en tu computadora.</p>
+<script>
+(function () {
+  var q = window.location.search;
+  if (q.indexOf("code=") >= 0) {
+    window.location.replace("https://localhost:8765/callback" + q);
+  } else {
+    document.getElementById("t").textContent = "Nada que reenviar";
+    document.getElementById("p").textContent = "Abre esta página solo desde el enlace de autorización de QuickBooks.";
+  }
+})();
+</script>
+<noscript><p>Activa JavaScript para completar la autorización.</p></noscript>
+</body>
+</html>
